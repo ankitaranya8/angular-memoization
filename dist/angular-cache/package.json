@@ -1,6 +1,38 @@
 {
   "name": "angular-function-cache",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "private": false,
+  "description": "A library for handling cache events and operations in Angular applications.",
+  "keywords": [
+    "angular",
+    "cache",
+    "angular-cache",
+    "resize-event",
+    "angular-library",
+    "cache-management",
+    "typescript",
+    "angular-components",
+    "performance",
+    "caching",
+    "data-caching",
+    "angular-event",
+    "cache-optimization",
+    "angular-performance",
+    "frontend-performance",
+    "event-handling",
+    "angular-resize",
+    "angular-package",
+    "memory-management",
+    "angular-optimization",
+    "angular-resize-listener",
+    "npm-package",
+    "angular-tools",
+    "angular-utilities",
+    "dynamic-content",
+    "angular-directive",
+    "UI-performance",
+    "angular-development"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/ankitaranya8/angular-memoization"
@@ -13,6 +45,8 @@
     "tslib": "^2.3.0"
   },
   "sideEffects": false,
+  "author": "Ankit Aranya",
+  "license": "MIT",
   "module": "fesm2022/angular-function-cache.mjs",
   "typings": "index.d.ts",
   "exports": {
