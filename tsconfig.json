@@ -10,8 +10,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "memo-patterns": [
-        "./dist/memo-patterns"
+      "angular-cache": [
+        "./dist/angular-cache"
       ]
     },
     "skipLibCheck": true,
