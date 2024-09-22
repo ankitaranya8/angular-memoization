@@ -1,27 +1,80 @@
-# AngularMemoization
+# Angular Memoization Library
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+## Overview
 
-## Development server
+The Angular Memoization Library provides utilities and decorators to optimize performance by caching the results of expensive computations. This library allows you to easily implement memoization design patterns in your Angular applications.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Memoization decorator for class methods.
+- Utility functions for manual memoization.
+- A service to manage and clear cache.
+- Compatible with Angular versions 8 to 18.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+You can install the library via NPM:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install angular-memo-lib
+```
 
-## Running unit tests
+## Using the Memoization Library
+- Once the library is installed, Angular developers can easily integrate it into their components and services.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Example 1: Using the Memoize Decorator in a Service - In a service, memoize a computationally expensive function using the Memoize decorator:
 
-## Running end-to-end tests
+```javascript
+import { Injectable } from '@angular/core';
+import { Memoize } from 'memo-patterns';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@Injectable({
+  providedIn: 'root'
+})
+export class ExpensiveCalculationService {
 
-## Further help
+  @Memoize()
+  calculateFactorial(n: number): number {
+    if (n <= 1) return 1;
+    return n * this.calculateFactorial(n - 1);
+  }
+}
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+In the above example, the calculateFactorial method is decorated with @Memoize(). If called with the same input, it will return the cached result.
+
+- Example 2: Using the MemoUtils Class - You can manually memoize a function using MemoUtils:
+
+```javascript
+import { MemoUtils } from 'memo-patterns';
+
+export class SomeComponent {
+  expensiveOperation = MemoUtils.memoize((a: number, b: number) => {
+    // Simulate expensive computation
+    return a + b;
+  });
+
+  run() {
+    console.log(this.expensiveOperation(2, 3)); // Computes and caches
+    console.log(this.expensiveOperation(2, 3)); // Retrieves from cache
+  }
+}
+```
+
+- Example 3: Clearing Cache via Service - If you need to clear the memoization cache at any point in your app, you can use the MemoService:
+
+```javascript
+import { MemoService } from 'memo-patterns';
+
+@Component({
+  selector: 'app-some-component',
+  template: `<button (click)="clearCache()">Clear Cache</button>`
+})
+export class SomeComponent {
+  constructor(private memoService: MemoService) {}
+
+  clearCache() {
+    this.memoService.clearCache();
+  }
+}
+```

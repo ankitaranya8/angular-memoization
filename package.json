@@ -1,6 +1,10 @@
 {
   "name": "angular-memoization",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ankitaranya8/angular-memoization"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
